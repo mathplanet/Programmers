@@ -1,0 +1,7 @@
+SELECT c.ID
+FROM ECOLI_DATA a
+JOIN ECOLI_DATA b ON a.ID = b.PARENT_ID
+JOIN ECOLI_DATA c ON b.ID = c.PARENT_ID
+-- 여기서 c가 '마지막 세대'여야 한다면 조건을 추가해야 함
+WHERE a.PARENT_ID IS NULL
+ORDER BY c.ID;
